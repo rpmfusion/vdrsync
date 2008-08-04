@@ -1,0 +1,38 @@
+--- vdrsync.pl~	2005-03-22 21:45:40.000000000 +0200
++++ vdrsync.pl	2007-01-21 01:34:21.000000000 +0200
+@@ -39,7 +39,7 @@
+ my %progs = (
+     tcmplex           => "",
+     mplex             => "",
+-    tcmplex_panteltje => "",
++    'tcmplex-panteltje' => "",
+     dvdauthor         => "",
+     mkisofs           => "",
+     transcode         => "",
+@@ -576,7 +576,7 @@
+    
+     my $mplex_command;
+ 
+-    $mplex_command = "nice -n 19 $progs{tcmplex_panteltje} -i $filestomux[0] -0 $filestomux[1]";
++    $mplex_command = "nice -n 19 $progs{'tcmplex-panteltje'} -i $filestomux[0] -0 $filestomux[1]";
+     dprint("Mplexing using tcmplex-panteltje\n");
+     my $counter = 2;
+     while (scalar(@filestomux) > $counter) {
+@@ -1393,14 +1393,14 @@
+     if ($transc_mpx && (! $progs{tcmplex})) {
+         die "Usage of tcmplex was specified, but the program could not be found within your path\n";
+     }
+-    if ($panteltje && (! $progs{tcmplex_panteltje})) {
++    if ($panteltje && (! $progs{'tcmplex-panteltje'})) {
+         die "Usage of tcmplex-panteltje was specified, but the program could not be found within your path\n";
+     }
+-    if ($mplex && (! $progs{tcmplex_panteltje}) && (! $progs{tcmplex}) && (! $progs{mplex})) {
++    if ($mplex && (! $progs{'tcmplex-panteltje'}) && (! $progs{tcmplex}) && (! $progs{mplex})) {
+         die "Need to multiplex the files, but did not find a single multiplexer\n";
+     }
+     if ($mplex && (! $panteltje) && (! $transc_mpx) && (! $progs{mplex})) {
+-        if ($progs{tcmplex_panteltje}) {
++        if ($progs{'tcmplex-panteltje'}) {
+             $panteltje = 1;
+         } elsif ($progs{tcmplex}) {
+             $transc_mpx = 1;
