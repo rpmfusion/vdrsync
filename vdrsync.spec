@@ -1,6 +1,6 @@
 Name:           vdrsync
 Version:        0.1.3
-Release:        9.PRE1.050322%{?dist}
+Release:        10.PRE1.050322%{?dist}
 Summary:        Recording demultiplexer for VDR
 
 Group:          Applications/Multimedia
@@ -36,8 +36,10 @@ for f in README.dvd-menu MANUAL-DE ; do
   iconv -f iso-8859-1 -t utf-8 $f > $f.utf-8 ; mv $f.utf-8 $f
 done
 rename .pl "" *.pl
+mv dvd-menu vdrsync-dvd-menu
 %{__perl} -pi -e "s/tcmplex_panteltje/'tcmplex-panteltje'/g" vdrsync
-%{__perl} -pi -e 's/(vdrsync(_buffer)?|dvd-menu)\.pl/$1/g' *
+%{__perl} -pi -e 's/(vdrsync(_buffer)?)\.pl/$1/g' *
+%{__perl} -pi -e 's/dvd-menu\.pl/vdrsync-dvd-menu/g' *
 %{__perl} -pi -e 's|vdrsync_buffer|%{_datadir}/vdrsync/vdrsync_buffer|' \
   vdrsync
 %{__perl} -pi -e 's|/usr/X11R6/lib/X11/fonts/truetype/arial.ttf|%{_datadir}/fonts/dejavu/DejaVuLGCSans.ttf| ; s/arial.ttf/DejaVuLGCSans.ttf/' *dvd-menu*
@@ -49,7 +51,7 @@ rename .pl "" *.pl
 %install
 rm -rf $RPM_BUILD_ROOT
 install -dm 755 $RPM_BUILD_ROOT%{_bindir}
-install -pm 755 vdrsync dvd-menu $RPM_BUILD_ROOT%{_bindir}
+install -pm 755 vdrsync vdrsync-dvd-menu $RPM_BUILD_ROOT%{_bindir}
 install -Dpm 755 vdrsync_buffer \
   $RPM_BUILD_ROOT%{_datadir}/vdrsync/vdrsync_buffer
 
@@ -63,11 +65,14 @@ rm -rf $RPM_BUILD_ROOT
 %doc BUGS CHANGES COPYING MANUAL README* TODO
 %lang(de) %doc MANUAL-DE
 %{_bindir}/vdrsync
-%{_bindir}/dvd-menu
+%{_bindir}/vdrsync-dvd-menu
 %{_datadir}/vdrsync/
 
 
 %changelog
+* Thu Nov 27 2008 Felix Kaechele <felix at fetzig dot org> - 0.1.3-10.PRE1.050322
+- renamed dvd-menu to vdrsync-dvd-menu due to conflict with dvd-slideshow
+
 * Mon Aug 04 2008 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info - 0.1.3-9.PRE1.050322
 - rebuild
 
