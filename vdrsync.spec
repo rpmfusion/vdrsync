@@ -1,6 +1,6 @@
 Name:           vdrsync
 Version:        0.1.3
-Release:        11.PRE1.050322%{?dist}
+Release:        12.PRE1.050322%{?dist}
 Summary:        Recording demultiplexer for VDR
 
 Group:          Applications/Multimedia
@@ -13,7 +13,7 @@ Patch1:         %{name}-panteltje.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      noarch
-Requires:       dejavu-lgc-mono, dejavu-lgc-sans, dejavu-lgc-serif
+Requires:       dejavu-fonts-lgc-sans
 Requires:       dvdauthor
 Requires:       ffmpeg
 Requires:       m2vrequantiser
@@ -70,6 +70,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sat Jan 03 2009 Felix Kaechele <felix at fetzig dot org> - 0.1.3-12.PRE1.050322
+- fixed font deps (once again)
+
 * Mon Dec 15 2008 Felix Kaechele <felix at fetzig dot org> - 0.1.3-11.PRE1.050322
 - fixed dependencies for new dejavu subpackages
 
