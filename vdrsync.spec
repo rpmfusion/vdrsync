@@ -1,6 +1,6 @@
 Name:           vdrsync
 Version:        0.1.3
-Release:        13.PRE1.050322%{?dist}
+Release:        14.PRE1.050322%{?dist}
 Summary:        Recording demultiplexer for VDR
 
 Group:          Applications/Multimedia
@@ -13,7 +13,7 @@ Patch1:         %{name}-panteltje.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      noarch
-Requires:       dejavu-fonts-lgc-sans
+Requires:       dejavu-lgc-sans-fonts
 Requires:       dvdauthor
 Requires:       ffmpeg
 Requires:       m2vrequantiser
@@ -70,6 +70,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sun Mar 29 2009 Felix Kaechele <felix at fetzig dot org> - 0.1.3-14.PRE1.050322
+- fixed fonts again
+
 * Sun Mar 29 2009 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 0.1.3-13.PRE1.050322
 - rebuild for new F11 features
 
