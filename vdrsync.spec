@@ -1,6 +1,6 @@
 Name:           vdrsync
 Version:        0.1.3
-Release:        12.PRE1.050322%{?dist}
+Release:        13.PRE1.050322%{?dist}
 Summary:        Recording demultiplexer for VDR
 
 Group:          Applications/Multimedia
@@ -70,6 +70,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sun Mar 29 2009 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 0.1.3-13.PRE1.050322
+- rebuild for new F11 features
+
 * Sat Jan 03 2009 Felix Kaechele <felix at fetzig dot org> - 0.1.3-12.PRE1.050322
 - fixed font deps (once again)
 
