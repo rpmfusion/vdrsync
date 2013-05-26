@@ -1,6 +1,6 @@
 Name:           vdrsync
 Version:        0.1.3
-Release:        16.PRE1.050322%{?dist}
+Release:        17.PRE1.050322%{?dist}
 Summary:        Recording demultiplexer for VDR
 
 Group:          Applications/Multimedia
@@ -70,6 +70,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sun May 26 2013 Nicolas Chauvet <kwizart@gmail.com> - 0.1.3-17.PRE1.050322
+- Rebuilt for x264/FFmpeg
+
 * Sun Mar 03 2013 Nicolas Chauvet <kwizart@gmail.com> - 0.1.3-16.PRE1.050322
 - Mass rebuilt for Fedora 19 Features
 
