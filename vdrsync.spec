@@ -1,6 +1,6 @@
 Name:           vdrsync
 Version:        0.1.3
-Release:        18.PRE1.050322%{?dist}
+Release:        19.PRE1.050322%{?dist}
 Summary:        Recording demultiplexer for VDR
 
 Group:          Applications/Multimedia
@@ -13,6 +13,8 @@ Patch1:         %{name}-panteltje.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      noarch
+BuildRequires:  perl
+BuildRequires:  perl-generators
 Requires:       dejavu-lgc-sans-fonts
 Requires:       dvdauthor
 Requires:       ffmpeg
@@ -61,8 +63,12 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %files
-%defattr(-,root,root,-)
-%doc BUGS CHANGES COPYING MANUAL README* TODO
+%if 0%{?_licensedir:1}
+%license COPYING
+%else
+%doc COPYING
+%endif
+%doc BUGS CHANGES MANUAL README* TODO
 %lang(de) %doc MANUAL-DE
 %{_bindir}/vdrsync
 %{_bindir}/vdrsync-dvd-menu
@@ -70,6 +76,12 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Wed Oct 26 2016 Paul Howarth <paul@city-fan.org> - 0.1.3-19.PRE1.050322
+- BR: perl and perl-generators
+  (https://fedoraproject.org/wiki/Changes/Build_Root_Without_Perl)
+- Use %%license where possible
+- Drop %%defattr, redundant since rpm 4.4
+
 * Sun Aug 31 2014 Sérgio Basto <sergio@serjux.com> - 0.1.3-18.PRE1.050322
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
 
