@@ -1,6 +1,6 @@
 Name:           vdrsync
 Version:        0.1.3
-Release:        19.PRE1.050322%{?dist}
+Release:        20.PRE1.050322%{?dist}
 Summary:        Recording demultiplexer for VDR
 
 Group:          Applications/Multimedia
@@ -76,6 +76,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Mon Mar 20 2017 RPM Fusion Release Engineering <kwizart@rpmfusion.org> - 0.1.3-20.PRE1.050322
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
+
 * Wed Oct 26 2016 Paul Howarth <paul@city-fan.org> - 0.1.3-19.PRE1.050322
 - BR: perl and perl-generators
   (https://fedoraproject.org/wiki/Changes/Build_Root_Without_Perl)
