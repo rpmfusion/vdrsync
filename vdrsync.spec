@@ -1,6 +1,6 @@
 Name:           vdrsync
 Version:        0.1.3
-Release:        20.PRE1.050322%{?dist}
+Release:        21.PRE1.050322%{?dist}
 Summary:        Recording demultiplexer for VDR
 
 Group:          Applications/Multimedia
@@ -13,8 +13,8 @@ Patch1:         %{name}-panteltje.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      noarch
-BuildRequires:  perl
 BuildRequires:  perl-generators
+BuildRequires:  perl-interpreter
 Requires:       dejavu-lgc-sans-fonts
 Requires:       dvdauthor
 Requires:       ffmpeg
@@ -76,6 +76,11 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sat Jul 15 2017 Paul Howarth <paul@city-fan.org> - 0.1.3-21.PRE1.050322
+- Perl 5.26 rebuild
+- BR: perl-interpreter rather than just perl
+  (https://fedoraproject.org/wiki/Changes/perl_Package_to_Install_Core_Modules)
+
 * Mon Mar 20 2017 RPM Fusion Release Engineering <kwizart@rpmfusion.org> - 0.1.3-20.PRE1.050322
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
 
