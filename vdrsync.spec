@@ -1,16 +1,14 @@
 Name:           vdrsync
 Version:        0.1.3
-Release:        24.PRE1.050322%{?dist}
+Release:        25.PRE1.050322%{?dist}
 Summary:        Recording demultiplexer for VDR
 
-Group:          Applications/Multimedia
 License:        GPLv2
 URL:            http://vdrsync.vdr-portal.de/
-Source0:        http://vdrsync.vdr-portal.de/releases/%{name}-%{version}PRE1.tgz
-Source1:        http://vdrsync.vdr-portal.de/releases/%{name}-050322.tgz
+Source0:        %url/releases/%{name}-%{version}PRE1.tgz
+Source1:        %url/releases/%{name}-050322.tgz
 Patch0:         %{name}-recpath.patch
 Patch1:         %{name}-panteltje.patch
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      noarch
 BuildRequires:  perl-generators
@@ -20,7 +18,7 @@ Requires:       dvdauthor
 Requires:       ffmpeg
 Requires:       m2vrequantiser
 Requires:       mjpegtools
-Requires:       mkisofs
+Requires:       genisoimage
 
 %description
 vdrsync is a script that demultiplexes VDR recordings and tries to
@@ -58,10 +56,6 @@ install -Dpm 755 vdrsync_buffer \
   $RPM_BUILD_ROOT%{_datadir}/vdrsync/vdrsync_buffer
 
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
-
 %files
 %if 0%{?_licensedir:1}
 %license COPYING
@@ -76,6 +70,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sun Sep 30 2018 Leigh Scott <leigh123linux@googlemail.com> - 0.1.3-25.PRE1.050322
+- Require genisoimage as mkisofs virtual provides was removed
+- Remove Group tag and clean up
+
 * Fri Jul 27 2018 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 0.1.3-24.PRE1.050322
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
 
