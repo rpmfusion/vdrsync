@@ -1,6 +1,6 @@
 Name:           vdrsync
 Version:        0.1.3
-Release:        25.PRE1.050322%{?dist}
+Release:        26.PRE1.050322%{?dist}
 Summary:        Recording demultiplexer for VDR
 
 License:        GPLv2
@@ -70,6 +70,9 @@ install -Dpm 755 vdrsync_buffer \
 
 
 %changelog
+* Tue Mar 05 2019 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 0.1.3-26.PRE1.050322
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
+
 * Sun Sep 30 2018 Leigh Scott <leigh123linux@googlemail.com> - 0.1.3-25.PRE1.050322
 - Require genisoimage as mkisofs virtual provides was removed
 - Remove Group tag and clean up
