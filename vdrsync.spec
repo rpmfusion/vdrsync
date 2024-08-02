@@ -1,6 +1,6 @@
 Name:           vdrsync
 Version:        0.1.3
-Release:        35.PRE1.050322%{?dist}
+Release:        36.PRE1.050322%{?dist}
 Summary:        Recording demultiplexer for VDR
 
 License:        GPLv2
@@ -70,6 +70,9 @@ install -Dpm 755 vdrsync_buffer \
 
 
 %changelog
+* Fri Aug 02 2024 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 0.1.3-36.PRE1.050322
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_41_Mass_Rebuild
+
 * Sun Feb 04 2024 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 0.1.3-35.PRE1.050322
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_40_Mass_Rebuild
 
