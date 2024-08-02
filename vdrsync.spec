@@ -30,8 +30,8 @@ generate a video DVD Directory structure that can be burned on a DVD.
 %prep
 %setup -q -n %{name}-%{version}PRE1 -a1
 mv vdrsync-050322/*.pl vdrsync-050322/CHANGES . ; rm -rf  vdrsync-050322
-%patch0
-%patch1
+%patch -P0
+%patch -P1
 for f in README.dvd-menu MANUAL-DE ; do
   iconv -f iso-8859-1 -t utf-8 $f > $f.utf-8 ; mv $f.utf-8 $f
 done
@@ -49,7 +49,6 @@ mv dvd-menu vdrsync-dvd-menu
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
 install -dm 755 $RPM_BUILD_ROOT%{_bindir}
 install -pm 755 vdrsync vdrsync-dvd-menu $RPM_BUILD_ROOT%{_bindir}
 install -Dpm 755 vdrsync_buffer \
